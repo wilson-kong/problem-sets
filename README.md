@@ -6,7 +6,7 @@ Thought I'd practice leet code and pytest writing by writing tests alongside my 
 
 **Array / String**
 - [X] Merge Strings Alternately
-- [ ] Greatest Common Divisor of Strings
+- [X] Greatest Common Divisor of Strings
 - [ ] Kids With the Greatest Number of Candies
 - [ ] Can Place Flowers
 - [ ] Reverse Vowels of a String
