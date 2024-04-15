@@ -1,5 +1,5 @@
 import pytest
-from merge_strings_alternately import Solution
+from all_solutions import Solution
 
 @pytest.fixture
 def solution():
