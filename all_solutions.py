@@ -38,6 +38,12 @@ class Solution:
             else:
                 output.append(False)
         return output
+    
+    def canPlaceFlowers(self, flowerbed: List[int], n: int) -> bool:
+        previous = 0
+        for index in range(flowerbed - 1):
+            previous = flowerbed[index]
+            
 
 
 def gcd(first: int, second: int) -> int:

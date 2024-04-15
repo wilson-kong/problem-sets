@@ -128,3 +128,20 @@ class TestKidsWithCandies():
         output = solution.kidsWithCandies(candies, extraCandies)
         assert output == expected
                 
+
+class TestCanPlaceFlowers():
+    def test_example_1(self, solution):
+        flowerbed = [1,0,0,0,1]
+        n = 1
+        expected = True
+        output = solution.canPlaceFlowers(flowerbed, n)
+        assert output == expected
+
+    def test_example_2(self, solution):
+        flowerbed = [1,0,0,0,1]
+        n = 2
+        expected = False
+        output = solution.canPlaceFlowers(flowerbed, n)
+        assert output == expected
+
+    
