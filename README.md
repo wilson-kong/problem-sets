@@ -128,3 +128,4 @@ Thought I'd practice leet code and pytest writing by writing tests alongside my 
 pytest -v
 ```
 `-v` for verbose to display test information.
+`-vv` for full diff display.

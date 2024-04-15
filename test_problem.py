@@ -104,3 +104,27 @@ class TestGCDOfStrings():
         expected = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
         output = solution.gcdOfStrings(str1, str2)
         assert output == expected
+
+
+class TestKidsWithCandies():
+    def test_example_1(self, solution):
+        candies = [2,3,5,1,3]
+        extraCandies = 3
+        expected = [True, True, True, False, True] 
+        output = solution.kidsWithCandies(candies, extraCandies)
+        assert output == expected
+
+    def test_example_2(self, solution):
+        candies = [4,2,1,1,2]
+        extraCandies = 1
+        expected = [True, False, False, False, False] 
+        output = solution.kidsWithCandies(candies, extraCandies)
+        assert output == expected
+
+    def test_example_3(self, solution):
+        candies = [12,1,12]
+        extraCandies = 10
+        expected = [True, False, True] 
+        output = solution.kidsWithCandies(candies, extraCandies)
+        assert output == expected
+                

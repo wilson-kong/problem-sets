@@ -1,4 +1,5 @@
 from collections import Counter
+from typing import List
 
 class Solution:
     def mergeAlternately(self, word1: str, word2: str) -> str:
@@ -27,6 +28,16 @@ class Solution:
             return str1[:gcd(len(str1), len(str2))]
         
         return ""
+    
+    def kidsWithCandies(self, candies: List[int], extraCandies: int) -> List[bool]:
+        greatest = max(candies)
+        output = []
+        for kid in candies:
+            if kid + extraCandies >= greatest:
+                output.append(True)
+            else:
+                output.append(False)
+        return output
 
 
 def gcd(first: int, second: int) -> int:
