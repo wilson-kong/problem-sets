@@ -2,7 +2,7 @@
 Solutions for problem sets such as leet code and similar 
 
 ## LeetCode 75 With tests
-Thought I'd practice leet code and pytest writing by writing tests alongside my leet code 75 attempts
+Thought I'd practice leet code and pytest writing by writing tests alongside my [leet code 75](https://leetcode.com/studyplan/leetcode-75/) attempts.
 
 **Array / String**
 - [X] Merge Strings Alternately
