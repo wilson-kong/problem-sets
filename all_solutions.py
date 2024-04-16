@@ -62,6 +62,26 @@ class Solution:
 
         return n <= 0
     
+    def reverseVowels(self, s: str) -> str:
+        """ time complexity can be improved """
+        storing = []
+        storing_index = {}
+        alpha = 'aeiouAEIOU'
+
+        for index, char in enumerate(s):
+            if char in alpha:
+                storing.append(index)
+                storing_index[index] = char
+
+        number_of_vowels = len(storing)
+        s = list(s)
+        for _ in range(number_of_vowels//2):
+            first = storing.pop(0)
+            last = storing.pop(-1)
+            s[first], s[last] = s[last], s[first]
+        
+        return "".join(s)
+
 
 def gcd(first: int, second: int) -> int:
     """ for gcd """

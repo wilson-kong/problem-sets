@@ -193,3 +193,21 @@ class TestCanPlaceFlowers():
         output = solution.canPlaceFlowers(flowerbed, n)
         assert output == expected
     
+class TestReverseVowels():
+    def test_example_1(self, solution):
+        s = "hello"
+        expected = "holle"
+        output = solution.reverseVowels(s)
+        assert output == expected
+
+    def test_example_2(self, solution):
+        s = "leetcode"
+        expected = "leotcede"
+        output = solution.reverseVowels(s)
+        assert output == expected
+
+    def test_290(self, solution):
+        s = "aA"
+        expected = "Aa"
+        output = solution.reverseVowels(s)
+        assert output == expected
