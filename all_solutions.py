@@ -41,14 +41,40 @@ class Solution:
     
     def canPlaceFlowers(self, flowerbed: List[int], n: int) -> bool:
         previous = 0
-        for index in range(flowerbed - 1):
-            previous = flowerbed[index]
-            
+        total_empty = 1
+        flowerbed.append(0)
+        flowerbed_len = len(flowerbed)
 
+        if 1 not in flowerbed:
+            total_empty += flowerbed_len
+            n = subtracting(n, total_empty)
+            return n <= 0
+        
+        for index in range(flowerbed_len):
+            previous = flowerbed[index]
+            if previous:
+                n = subtracting(n, total_empty)
+                total_empty = 0
+                continue
+            total_empty += 1
+
+        n = subtracting(n, total_empty)
+
+        return n <= 0
+    
 
 def gcd(first: int, second: int) -> int:
+    """ for gcd """
     result = min(first, second)
     while result > 0:
         if first % result == 0 and second % result == 0:
             return result
         result -= 1
+
+def subtracting(n: int, total_empty: int) -> int:
+    """ for canPlaceFlowers """
+    if total_empty and total_empty % 2 == 0:
+        n -= ((total_empty/2) - 1)
+    elif total_empty and total_empty % 2 != 0:
+        n -= ((total_empty//2))
+    return n
