@@ -30,6 +30,7 @@ class Solution:
         return ""
     
     def kidsWithCandies(self, candies: List[int], extraCandies: int) -> List[bool]:
+        """ 1431. Kids With the Greatest Number of Candies """
         greatest = max(candies)
         output = []
         for kid in candies:
@@ -40,6 +41,7 @@ class Solution:
         return output
     
     def canPlaceFlowers(self, flowerbed: List[int], n: int) -> bool:
+        """ 605. Can Place Flowers """
         previous = 0
         total_empty = 1
         flowerbed.append(0)
@@ -63,7 +65,9 @@ class Solution:
         return n <= 0
     
     def reverseVowels(self, s: str) -> str:
-        """ time complexity can be improved """
+        """ 345. Reverse Vowels of a String 
+            time complexity can be improved 
+        """
         storing = []
         storing_index = {}
         alpha = 'aeiouAEIOU'
