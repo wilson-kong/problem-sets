@@ -1,4 +1,5 @@
 from collections import Counter
+import math
 from typing import List
 
 class Solution:
@@ -112,7 +113,40 @@ class Solution:
         # return ' '.join(reversed(s.split()))
 
 
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        """ 238. Product of Array Except Self 
+            Not complete because used division by accident.
+        """
 
+        total = 1
+        zero = False
+        all_zeros = None
+        for num in nums:
+            if num != 0:
+                total = total * num
+                all_zeros = False
+            else:
+                zero = True
+                if all_zeros is None or all_zeros == True:
+                    all_zeros = True
+        if all_zeros:
+            return nums
+        
+        output = []
+        if not zero:
+            for num in nums:
+                output.append(total//num)
+            return output 
+        
+        total = 1
+        for index, num in enumerate(nums):
+            if num == 0:
+                total = math.prod(nums[:index]) * math.prod(nums[index + 1:])
+                output.append(total)
+                total = 1
+            else:
+                output.append(0)
+        return output
 
 def gcd(first: int, second: int) -> int:
     """ for gcd """

@@ -230,3 +230,29 @@ class TestReverseWords():
         expected = "example good a"
         output = solution.reverseWords(s)
         assert output == expected
+
+
+class TestProductExceptSelf():
+    def test_example_1(self, solution):
+        nums = [1,2,3,4]
+        expected = [24,12,8,6]
+        output = solution.productExceptSelf(nums)
+        assert output == expected
+
+    def test_example_2(self, solution):
+        nums = [-1,1,0,-3,3]
+        expected = [0,0,9,0,0]
+        output = solution.productExceptSelf(nums)
+        assert output == expected
+
+    def test_18(self, solution):
+        nums = [0,0]
+        expected = [0,0]
+        output = solution.productExceptSelf(nums)
+        assert output == expected
+
+    def test_17(self, solution):
+        nums = [1,0]
+        expected = [0,1]
+        output = solution.productExceptSelf(nums)
+        assert output == expected
