@@ -7,10 +7,10 @@ Thought I'd practice leet code and pytest writing by writing tests alongside my 
 **Array / String**
 - [X] Merge Strings Alternately
 - [X] Greatest Common Divisor of Strings
-- [ ] Kids With the Greatest Number of Candies
-- [ ] Can Place Flowers
-- [ ] Reverse Vowels of a String
-- [ ] Reverse Words in a String
+- [X] Kids With the Greatest Number of Candies
+- [X] Can Place Flowers
+- [X] Reverse Vowels of a String
+- [X] Reverse Words in a String
 - [ ] Product of Array Except Self
 - [ ] Increasing Triplet Subsequence
 - [ ] String Compression
