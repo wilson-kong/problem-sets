@@ -256,3 +256,10 @@ class TestProductExceptSelf():
         expected = [0,1]
         output = solution.productExceptSelf(nums)
         assert output == expected
+
+    def test_13(self, solution):
+        nums = [2,3,5,0]
+        expected = [0,0,0,30]
+        output = solution.productExceptSelf(nums)
+        assert output == expected
+        
