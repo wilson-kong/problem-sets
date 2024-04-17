@@ -211,3 +211,22 @@ class TestReverseVowels():
         expected = "Aa"
         output = solution.reverseVowels(s)
         assert output == expected
+
+class TestReverseWords():
+    def test_example_1(self, solution):
+        s = "the sky is blue"
+        expected = "blue is sky the"
+        output = solution.reverseWords(s)
+        assert output == expected
+
+    def test_example_2(self, solution):
+        s = "  hello world  "
+        expected = "world hello"
+        output = solution.reverseWords(s)
+        assert output == expected
+
+    def test_example_3(self, solution):
+        s = "a good   example"
+        expected = "example good a"
+        output = solution.reverseWords(s)
+        assert output == expected

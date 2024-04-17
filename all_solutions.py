@@ -86,6 +86,33 @@ class Solution:
         
         return "".join(s)
 
+    def reverseWords(self, s: str) -> str:
+        """ 151. Reverse Words in a String 
+            Solutiuon uses a linked list, just to see if I can.
+            The solution that uses a regular list is commented out.
+        """
+        output = []
+        output = LinkedList()
+        start_index = None
+        s = ' ' + s + ' '
+        for index, char in enumerate(s):
+            if char != ' ':
+                if start_index is None:
+                    start_index = index
+                    print("start_index", start_index)
+            else:
+                if start_index is not None:
+                    # output.insert(0, s[start_index:index])
+                    output.insert_at_start(s[start_index:index])
+                    start_index = None
+
+        return output.all_data()
+        # return " ".join(output)
+        # Alt solution 
+        # return ' '.join(reversed(s.split()))
+
+
+
 
 def gcd(first: int, second: int) -> int:
     """ for gcd """
@@ -102,3 +129,31 @@ def subtracting(n: int, total_empty: int) -> int:
     elif total_empty and total_empty % 2 != 0:
         n -= ((total_empty//2))
     return n
+
+
+class LinkedListNode:
+    def __init__(self, data: str):
+        self.data = data
+        self.next = None
+
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def insert_at_start(self, data: str):
+        new_node = LinkedListNode(data)
+        if self.head is None:
+            self.head = new_node
+        else:
+            new_node.next = self.head
+            self.head = new_node
+    
+    def all_data(self):
+        current_node = self.head
+        output = ""
+        while current_node:
+            output += current_node.data + " "
+            current_node = current_node.next
+        
+        return output[:-1]
