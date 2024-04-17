@@ -262,4 +262,25 @@ class TestProductExceptSelf():
         expected = [0,0,0,30]
         output = solution.productExceptSelf(nums)
         assert output == expected
-        
+
+
+class TestIncreasingTriplet():
+    def test_example_1(self, solution):
+        nums = [1,2,3,4,5]
+        expected = True
+        output = solution.increasingTriplet(nums)
+        assert output == expected
+
+    def test_example_2(self, solution):
+        nums = [5,4,3,2,1]
+        expected = False
+        output = solution.increasingTriplet(nums)
+        assert output == expected
+
+    def test_example_3(self, solution):
+        nums = [2,1,5,0,4,6]
+        expected = True
+        output = solution.increasingTriplet(nums)
+        assert output == expected
+
+    

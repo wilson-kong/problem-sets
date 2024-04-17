@@ -163,6 +163,11 @@ class Solution:
         #         output.append(0)
         # return output
 
+    def increasingTriplet(self, nums: List[int]) -> bool:
+        """ 334. Increasing Triplet Subsequence """
+        pass
+    
+
 def gcd(first: int, second: int) -> int:
     """ for gcd """
     result = min(first, second)
