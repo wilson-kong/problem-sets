@@ -422,3 +422,17 @@ class TestMaximumAverageSubarrayI():
         expected = -25.14477
         output = solution.findMaxAverage(nums, k)
         assert pytest.approx(expected, rel=1e-5) == output
+        
+
+class TestFindTheHighestAltitude():
+    def test_example_1(self, solution: Solution):
+        gain = [-5,1,5,0,-7]
+        expected = 1
+        output = solution.largestAltitude(gain)
+        assert expected == output
+
+    def test_example_2(self, solution: Solution):
+        gain = [-4,-3,-2,-1,4,3,2]
+        expected = 0
+        output = solution.largestAltitude(gain)
+        assert expected == output

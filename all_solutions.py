@@ -253,6 +253,9 @@ class Solution:
                 max_sum = current_sum
 
         return max_sum/k
+    
+    def largestAltitude(self, gain: List[int]) -> int:
+        """ 1732. Find the Highest Altitude """
 
 
 
