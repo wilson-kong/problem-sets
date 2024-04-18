@@ -328,3 +328,23 @@ class TestStringCompression():
         output = solution.compress(chars)
         assert expected == output
         assert expected_chars == chars[:expected]
+
+
+class TestMoveZeroes():
+    def test_example_1(self, solution):
+        nums = [0,1,0,3,12]
+        expected = [1,3,12,0,0]
+        solution.moveZeroes(nums)
+        assert expected == nums
+
+    def test_example_2(self, solution):
+        nums = [0]
+        expected = [0]
+        solution.moveZeroes(nums)
+        assert expected == nums
+
+    def test_28(self, solution):
+        nums = [0, 0, 1]
+        expected = [1, 0, 0]
+        solution.moveZeroes(nums)
+        assert expected == nums    

@@ -3,6 +3,7 @@ import math
 from typing import List
 
 class Solution:
+    ##### Array / String #####
     def mergeAlternately(self, word1: str, word2: str) -> str:
         """ 1768. Merge Strings Alternately """
         output = ""
@@ -178,6 +179,7 @@ class Solution:
         return False
     
     def compress(self, chars: List[str]) -> int:
+        """ 443. String Compression443. String Compression """
         collected = Counter(chars)
         index = 0
         for key in collected:
@@ -191,9 +193,26 @@ class Solution:
                     chars[index] = char
                     index += 1
         return index
-            
-                
-    
+
+    ##### Two Pointers #####
+    def moveZeroes(self, nums: List[int]) -> None:
+        index = 0
+        nums_length = len(nums)
+        for num in nums:
+            if num != 0:
+                nums[index] = num
+                index += 1
+        while index < nums_length:
+            nums[index] = 0
+            index += 1
+
+        # Alt solution
+        # for index in range(len(nums) - 1, -1, -1):
+        #     print(nums)
+        #     print(index)
+        #     if nums[index] == 0:
+        #         nums.pop(index)
+        #         nums.append(0)
 
 def gcd(first: int, second: int) -> int:
     """ for gcd """
