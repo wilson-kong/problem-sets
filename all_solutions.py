@@ -196,6 +196,7 @@ class Solution:
 
     ##### Two Pointers #####
     def moveZeroes(self, nums: List[int]) -> None:
+        """ 283. Move Zeroes """
         index = 0
         nums_length = len(nums)
         for num in nums:
@@ -215,6 +216,7 @@ class Solution:
         #         nums.append(0)
 
     def isSubsequence(self, s: str, t: str) -> bool:
+        """ 392. Is Subsequence """
         if s == "":
             return True
         if len(s) > len(t):
@@ -227,6 +229,31 @@ class Solution:
                     return True
                 index += 1
         return False
+    
+    def findMaxAverage(self, nums: List[int], k: int) -> float:
+        """ 643. Maximum Average Subarray I
+            Felt like a two pointers question. 
+        """
+        if len(nums) == k:
+            return sum(nums)/k
+        
+        current_sum = 0
+        for i in range(k):
+            current_sum += nums[i]
+
+        max_sum = current_sum
+        left = 0
+        right = k
+        while right < len(nums):
+            current_sum -= nums[left]
+            current_sum += nums[right]
+            left += 1
+            right += 1
+            if current_sum > max_sum:
+                max_sum = current_sum
+
+        return max_sum/k
+
 
 
 def gcd(first: int, second: int) -> int:
