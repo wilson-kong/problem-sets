@@ -165,7 +165,34 @@ class Solution:
 
     def increasingTriplet(self, nums: List[int]) -> bool:
         """ 334. Increasing Triplet Subsequence """
-        pass
+        first = max(nums)
+        second = first
+        for num in nums:
+            if num <= first:
+                first = num
+            elif num <= second:
+                second = num
+            else:
+                return True
+    
+        return False
+    
+    def compress(self, chars: List[str]) -> int:
+        collected = Counter(chars)
+        index = 0
+        for key in collected:
+            if collected[key] == 1:
+                chars[index] = key
+                index += 1
+            else:
+                chars[index] = key
+                index += 1
+                for char in str(collected[key]):
+                    chars[index] = char
+                    index += 1
+        return index
+            
+                
     
 
 def gcd(first: int, second: int) -> int:
