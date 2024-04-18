@@ -16,8 +16,8 @@ Thought I'd practice leet code and pytest writing by writing tests alongside my 
 - [ ] String Compression
 
 **Two Pointers**
-- [ ] Move Zeroes
-- [ ] Is Subsequence
+- [X] Move Zeroes
+- [X] Is Subsequence
 - [ ] Container With Most Water
 - [ ] Max Number of K-Sum Pairs
 
