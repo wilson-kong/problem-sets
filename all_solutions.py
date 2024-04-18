@@ -214,6 +214,21 @@ class Solution:
         #         nums.pop(index)
         #         nums.append(0)
 
+    def isSubsequence(self, s: str, t: str) -> bool:
+        if s == "":
+            return True
+        if len(s) > len(t):
+            return False
+        
+        index = 0
+        for char in t:
+            if char == s[index]:
+                if index == len(s) - 1:
+                    return True
+                index += 1
+        return False
+
+
 def gcd(first: int, second: int) -> int:
     """ for gcd """
     result = min(first, second)
