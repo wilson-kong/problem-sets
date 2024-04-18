@@ -11,8 +11,8 @@ Thought I'd practice leet code and pytest writing by writing tests alongside my 
 - [X] Can Place Flowers
 - [X] Reverse Vowels of a String
 - [X] Reverse Words in a String
-- [ ] Product of Array Except Self
-- [ ] Increasing Triplet Subsequence
+- [X] Product of Array Except Self
+- [X] Increasing Triplet Subsequence
 - [ ] String Compression
 
 **Two Pointers**
