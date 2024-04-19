@@ -436,3 +436,23 @@ class TestFindTheHighestAltitude():
         expected = 0
         output = solution.largestAltitude(gain)
         assert expected == output
+
+
+class TestPivotIndex():
+    def test_example_1(self, solution: Solution):
+        nums = [1,7,3,6,5,6]
+        expected = 3
+        output = solution.pivotIndex(nums)
+        assert expected == output
+
+    def test_example_2(self, solution: Solution):
+        nums = [1,2,3]
+        expected = -1
+        output = solution.pivotIndex(nums)
+        assert expected == output
+
+    def test_example_3(self, solution: Solution):
+        nums = [2,1,-1]
+        expected = 0
+        output = solution.pivotIndex(nums)
+        assert expected == output

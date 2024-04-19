@@ -22,14 +22,14 @@ Thought I'd practice leet code and pytest writing by writing tests alongside my 
 - [ ] Max Number of K-Sum Pairs
 
 **Sliding Window**
-- [ ] Maximum Average Subarray I
+- [X] Maximum Average Subarray I
 - [ ] Maximum Number of Vowels in a Substring of Given Length
 - [ ] Max Consecutive Ones III
 - [ ] Longest Subarray of 1's After Deleting One Element
 
 **Prefix Sum**
-- [ ] Find the Highest Altitude
-- [ ] Find Pivot Index
+- [X] Find the Highest Altitude
+- [X] Find Pivot Index
 
 **Hash Map / Set**
 - [ ] Find the Difference of Two Arrays

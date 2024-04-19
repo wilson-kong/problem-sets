@@ -265,6 +265,16 @@ class Solution:
 
         return highest
 
+    def pivotIndex(self, nums: List[int]) -> int:
+        """ 724. Find Pivot Index """
+        right_total = sum(nums)
+        left_total = 0
+        for index, num in enumerate(nums):
+            right_total -= num
+            if right_total == left_total:
+                return index
+            left_total +=  num
+        return -1
 
 
 def gcd(first: int, second: int) -> int:
