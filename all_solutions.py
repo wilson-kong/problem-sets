@@ -256,6 +256,14 @@ class Solution:
     
     def largestAltitude(self, gain: List[int]) -> int:
         """ 1732. Find the Highest Altitude """
+        altitude = 0
+        highest = altitude
+        for step in gain:
+            altitude += step
+            if altitude > highest:
+                highest = altitude
+
+        return highest
 
 
 
