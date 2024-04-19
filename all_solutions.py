@@ -275,6 +275,21 @@ class Solution:
                 return index
             left_total +=  num
         return -1
+    
+    def findDifference(self, nums1: List[int], nums2: List[int]) -> List[List[int]]:
+        """ 2215. Find the Difference of Two Arrays """
+        answer = [[],[]]
+        nums1 = set(nums1)
+        nums2 = set(nums2)
+        for num in nums1:
+            if num not in nums2:
+                answer[0].append(num)
+
+        for num in nums2:
+            if num not in nums1:
+                answer[1].append(num)
+        
+        return answer
 
 
 def gcd(first: int, second: int) -> int:

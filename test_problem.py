@@ -456,3 +456,19 @@ class TestPivotIndex():
         expected = 0
         output = solution.pivotIndex(nums)
         assert expected == output
+
+
+class TestFindDifference():
+    def test_example_1(self, solution: Solution):
+        nums1 = [1,2,3]
+        nums2 = [2,4,6]
+        expected = [[1,3],[4,6]]
+        output = solution.findDifference(nums1, nums2)
+        assert expected == output
+    
+    def test_example_2(self, solution: Solution):
+        nums1 = [1,2,3,3]
+        nums2 = [1,1,2,2]
+        expected = [[3],[]]
+        output = solution.findDifference(nums1, nums2)
+        assert expected == output
