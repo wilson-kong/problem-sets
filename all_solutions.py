@@ -290,6 +290,20 @@ class Solution:
                 answer[1].append(num)
         
         return answer
+    
+    def uniqueOccurrences(self, arr: List[int]) -> bool:
+        """ 1207. Unique Number of Occurrences """
+        # arr = Counter(arr)
+        # all_occurences = Counter(arr.values())
+        # for occurence in all_occurences.values():
+        #     if occurence != 1:
+        #         return False
+        
+        # return True
+
+        # Faster by using variables
+        count_arr = Counter(arr).values()
+        return len(set(count_arr)) == len(count_arr)
 
 
 def gcd(first: int, second: int) -> int:

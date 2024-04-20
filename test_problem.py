@@ -472,3 +472,23 @@ class TestFindDifference():
         expected = [[3],[]]
         output = solution.findDifference(nums1, nums2)
         assert expected == output
+
+
+class TestUniqueOccurrences():
+    def test_example_1(self, solution: Solution):
+        arr = [1,2,2,1,1,3]
+        expected = True
+        output = solution.uniqueOccurrences(arr)
+        assert expected == output
+
+    def test_example_2(self, solution: Solution):
+        arr = [1,2]
+        expected = False
+        output = solution.uniqueOccurrences(arr)
+        assert expected == output
+
+    def test_example_3(self, solution: Solution):
+        arr = [-3,0,1,-3,1,1,1,-3,10,0]
+        expected = True
+        output = solution.uniqueOccurrences(arr)
+        assert expected == output
