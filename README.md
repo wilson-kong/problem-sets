@@ -32,8 +32,8 @@ Thought I'd practice leet code and pytest writing by writing tests alongside my 
 - [X] Find Pivot Index
 
 **Hash Map / Set**
-- [ ] Find the Difference of Two Arrays
-- [ ] Unique Number of Occurrences
+- [X] Find the Difference of Two Arrays
+- [X] Unique Number of Occurrences
 - [ ] Determine if Two Strings Are Close
 - [ ] Equal Row and Column Pairs
 
