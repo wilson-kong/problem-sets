@@ -304,6 +304,34 @@ class Solution:
         # Faster by using variables
         count_arr = Counter(arr).values()
         return len(set(count_arr)) == len(count_arr)
+    
+
+class RecentCounter:
+    def __init__(self):
+        self._queue = []
+        self._front = 0
+        self._rear = 0
+
+    def ping(self, t: int) -> int:
+        self._queue.append(t)
+        # count = 0
+        self._rear += 1
+        start_time = t - 3000
+        while self._queue[self._front] < start_time:
+            self._front += 1
+        
+        return self._rear - self._front 
+    
+        # Brute force
+        for i in range(len(self._queue) - 1, -1, -1):
+            print(i)
+            print(self._queue[i])
+            print(t)
+
+            if self._queue[i] >= start_time:
+                count += 1
+
+        return count
 
 
 def gcd(first: int, second: int) -> int:

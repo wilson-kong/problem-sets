@@ -1,5 +1,5 @@
 import pytest
-from all_solutions import Solution
+from all_solutions import Solution, RecentCounter
 
 @pytest.fixture
 def solution():
@@ -491,4 +491,25 @@ class TestUniqueOccurrences():
         arr = [-3,0,1,-3,1,1,1,-3,10,0]
         expected = True
         output = solution.uniqueOccurrences(arr)
+        assert expected == output
+
+
+@pytest.fixture
+def recent_counter_solution():
+    return RecentCounter()
+
+
+class TestRecentCounter():
+    def test_example_1(self, recent_counter_solution: RecentCounter):
+        expected = 1
+        output = recent_counter_solution.ping(1)
+        assert expected == output
+        expected = 2
+        output = recent_counter_solution.ping(100)
+        assert expected == output
+        expected = 3
+        output = recent_counter_solution.ping(3001)
+        assert expected == output
+        expected = 3
+        output = recent_counter_solution.ping(3002)
         assert expected == output
