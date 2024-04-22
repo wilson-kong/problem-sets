@@ -1,6 +1,12 @@
 from collections import Counter
 import math
-from typing import List
+from typing import List, Optional
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+        
 
 class Solution:
     ##### Array / String #####
@@ -305,6 +311,21 @@ class Solution:
         count_arr = Counter(arr).values()
         return len(set(count_arr)) == len(count_arr)
     
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        """ 206. Reverse Linked List """
+        reverse_node = None
+        node = head
+
+        while node is not None:
+            next_node = node.next
+
+            node.next = reverse_node.val
+            reverse_node = node
+            node = next_node
+
+        return reverse_node.head
+    
+    
 
 class RecentCounter:
     def __init__(self):
@@ -377,3 +398,5 @@ class LinkedList:
             current_node = current_node.next
         
         return output[:-1]
+    
+
