@@ -2,11 +2,21 @@ from collections import Counter
 import math
 from typing import List, Optional
 
+
 class ListNode:
+    """ for 206. Reverse Linked List """
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
-        
+
+
+class TreeNode:
+    """ for 104. Maximum Depth of Binary Tree """
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
 
 class Solution:
     ##### Array / String #####
@@ -325,7 +335,14 @@ class Solution:
 
         return reverse_node.head
     
-    
+    def maxDepth(self, root: Optional[TreeNode]) -> int:
+        """ 104. Maximum Depth of Binary Tree """
+        if not root:
+            return 0
+        
+        return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
+
+
 
 class RecentCounter:
     def __init__(self):
