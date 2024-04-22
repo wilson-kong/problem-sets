@@ -49,11 +49,11 @@ Thought I'd practice leet code and pytest writing by writing tests alongside my 
 **Linked List**
 - [ ] Delete the Middle Node of a Linked List
 - [ ] Odd Even Linked List
-- [ ] Reverse Linked List
+- [X] Reverse Linked List
 - [ ] Maximum Twin Sum of a Linked List
 
 **Binary Tree - DFS**
-- [ ] Maximum Depth of Binary Tree
+- [X] Maximum Depth of Binary Tree
 - [ ] Leaf-Similar Trees
 - [ ] Count Good Nodes in Binary Tree
 - [ ] Path Sum III
