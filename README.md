@@ -54,7 +54,7 @@ Thought I'd practice leet code and pytest writing by writing tests alongside my 
 
 **Binary Tree - DFS**
 - [X] Maximum Depth of Binary Tree
-- [ ] Leaf-Similar Trees
+- [X] Leaf-Similar Trees
 - [ ] Count Good Nodes in Binary Tree
 - [ ] Path Sum III
 - [ ] Longest ZigZag Path in a Binary Tree
@@ -65,7 +65,7 @@ Thought I'd practice leet code and pytest writing by writing tests alongside my 
 - [ ] Maximum Level Sum of a Binary Tree
 
 **Binary Search Tree**
-- [ ] Search in a Binary Search Tree
+- [X] Search in a Binary Search Tree
 - [ ] Delete Node in a BST
 
 **Graphs - DFS**

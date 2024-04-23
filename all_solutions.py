@@ -342,8 +342,25 @@ class Solution:
         
         return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
 
+    # class TreeNode:
+    #     def __init__(self, val=0, left=None, right=None):
+    #         self.val = val
+    #         self.left = left
+    #         self.right = right
 
-
+    def leafSimilar(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> bool:
+        """ 872. Leaf-Similar Trees """
+        return dfs_leaves(root1) == dfs_leaves(root2)
+    
+    def searchBST(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
+        """ 700. Search in a Binary Search Tree """
+        if root is None or root.val == val:
+            return root
+        if val < root.val:
+            return self.searchBST(root.left, val)
+            
+        return self.searchBST(root.right, val)  
+    
 class RecentCounter:
     def __init__(self):
         self._queue = []
@@ -417,3 +434,9 @@ class LinkedList:
         return output[:-1]
     
 
+def dfs_leaves(root):
+    """ for 872. Leaf-Similar Trees """
+    if root is None:
+        return []
+    leaves = dfs_leaves(root.left) + dfs_leaves(root.right)
+    return leaves or [root.val]
