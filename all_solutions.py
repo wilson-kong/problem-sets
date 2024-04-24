@@ -1,7 +1,7 @@
 from collections import Counter
 import math
 from typing import List, Optional
-
+GUESS = 2
 
 class ListNode:
     """ for 206. Reverse Linked List """
@@ -361,6 +361,56 @@ class Solution:
             
         return self.searchBST(root.right, val)  
     
+    def guessNumber(self, n: int) -> int:
+        if n == 1:
+            return 1
+
+        start = 1
+        end = n
+        
+        while start <= end:
+            guessing = (end + start) // 2    
+            output = guess(guessing)
+            if output == 0:
+                return guessing
+            elif output == -1:
+                end = guessing - 1
+            else:
+                start = guessing + 1
+        
+        return guessing
+    
+    def tribonacci(self, n: int) -> int:
+        if n < 2:
+            return n
+        
+        current = [0, 1, 1]
+        
+        for _ in range(3, n + 1):
+            new = sum(current)
+            current[0] = current[1]
+            current[1] = current[2]
+            current[2] = new
+
+        return current[2]
+
+        # recursive
+        # if n == 0:
+        #     return 0
+        
+        # if n == 1 or n == 2:
+        #     return 1
+        
+        # return self.tribonacci(n - 3) + self.tribonacci(n - 2) + self.tribonacci(n - 1)
+
+def guess(num: int):
+    if num > GUESS:
+        return -1
+    elif num < GUESS:
+        return 1
+    else:
+        return 0
+
 class RecentCounter:
     def __init__(self):
         self._queue = []

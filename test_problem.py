@@ -513,3 +513,35 @@ class TestRecentCounter():
         expected = 3
         output = recent_counter_solution.ping(3002)
         assert expected == output
+
+
+class TestTribonacci():
+    def test_example_1(self, solution: Solution):
+        n = 4
+        expected = 4
+        output = solution.tribonacci(n)
+        assert expected == output
+
+    def test_example_2(self, solution: Solution):
+        n = 25
+        expected = 1389537
+        output = solution.tribonacci(n)
+        assert expected == output
+
+    def test_1(self, solution: Solution):
+        n = 0
+        expected = 0
+        output = solution.tribonacci(n)
+        assert expected == output
+
+    def test_2(self, solution: Solution):
+        n = 1
+        expected = 1
+        output = solution.tribonacci(n)
+        assert expected == output
+
+    def test_3(self, solution: Solution):
+        n = 3
+        expected = 2
+        output = solution.tribonacci(n)
+        assert expected == output
