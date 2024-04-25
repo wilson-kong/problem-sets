@@ -545,3 +545,17 @@ class TestTribonacci():
         expected = 2
         output = solution.tribonacci(n)
         assert expected == output
+
+
+class TestMinCostClimbingStairs():
+    def test_example_1(self, solution: Solution):
+        cost = [10,15,20]
+        expected = 15
+        output = solution.minCostClimbingStairs(cost)
+        assert expected == output
+
+    def test_example_1(self, solution: Solution):
+        cost = [1,100,1,1,1,100,1,1,100,1]
+        expected = 6
+        output = solution.minCostClimbingStairs(cost)
+        assert expected == output

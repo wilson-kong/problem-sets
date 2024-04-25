@@ -403,6 +403,14 @@ class Solution:
         
         # return self.tribonacci(n - 3) + self.tribonacci(n - 2) + self.tribonacci(n - 1)
 
+    def minCostClimbingStairs(self, cost: List[int]) -> int:
+        """ 746. Min Cost Climbing Stairs """
+        cost.append(0)
+        for i in range(2, len(cost)):
+            cost[i] += min(cost[i - 1], cost[i - 2])
+
+        return cost[-1]
+
 def guess(num: int):
     if num > GUESS:
         return -1
