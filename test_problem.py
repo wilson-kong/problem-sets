@@ -559,3 +559,18 @@ class TestMinCostClimbingStairs():
         expected = 6
         output = solution.minCostClimbingStairs(cost)
         assert expected == output
+
+
+class TestCountBits():
+    def test_example_1(self, solution: Solution):
+        n = 2
+        expected = [0,1,1]
+        output = solution.countBits(n)
+        assert expected == output
+
+    def test_example_2(self, solution: Solution):
+        n = 5
+        expected = [0,1,1,2,1,2]
+        output = solution.countBits(n)
+        assert expected == output
+
