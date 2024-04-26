@@ -574,3 +574,23 @@ class TestCountBits():
         output = solution.countBits(n)
         assert expected == output
 
+
+class TestSingleNumber():
+    def test_example_1(self, solution: Solution):
+        nums = [2,2,1]
+        expected = 1
+        output = solution.singleNumber(nums)
+        assert expected == output
+
+    def test_example_2(self, solution: Solution):
+        nums = [4,1,2,1,2]
+        expected = 4
+        output = solution.singleNumber(nums)
+        assert expected == output
+
+    def test_example_3(self, solution: Solution):
+        nums = [1]
+        expected = 1
+        output = solution.singleNumber(nums)
+        assert expected == output
+

@@ -412,6 +412,7 @@ class Solution:
         return cost[-1]
     
     def countBits(self, n: int) -> List[int]:
+        """ 338. Counting Bits """
         dp = [0] * (n + 1)
         offset = 1
         for index in range(1, n + 1):
@@ -420,7 +421,17 @@ class Solution:
             dp[index] = 1 + dp[index - offset]
 
         return dp
-    
+
+    def singleNumber(self, nums: List[int]) -> int:
+        """ 136. Single Number """
+        unique = set()
+        for num in nums:
+            if num not in unique:
+                unique.add(num)
+            else:
+                unique.remove(num)
+        return unique.pop()
+
 
 def guess(num: int):
     if num > GUESS:
