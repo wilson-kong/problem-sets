@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 class Solution {
     public static void main(String[] args) {
         // String word1 = "abc";
@@ -9,15 +13,24 @@ class Solution {
         // word1 = "abcd";
         // word2 = "pq";
         // System.out.println(mergeAlternately(word1, word2));
-        String str1 = "ABCABC";
-        String str2 = "ABC";
-        System.out.println(gcdOfStrings(str1, str2));
-        str1 = "ABABAB";
-        str2 = "ABAB";
-        System.out.println(gcdOfStrings(str1, str2));
-        str1 = "LEET";
-        str2 = "CODE";
-        System.out.println(gcdOfStrings(str1, str2));
+        // String str1 = "ABCABC";
+        // String str2 = "ABC";
+        // System.out.println(gcdOfStrings(str1, str2));
+        // str1 = "ABABAB";
+        // str2 = "ABAB";
+        // System.out.println(gcdOfStrings(str1, str2));
+        // str1 = "LEET";
+        // str2 = "CODE";
+        // System.out.println(gcdOfStrings(str1, str2));
+        int[] candies = new int[]{2,3,5,1,3};
+        int extraCandies = 3;
+        System.out.println(kidsWithCandies(candies, extraCandies));
+        candies = new int[]{4,2,1,1,2};
+        extraCandies = 1;
+        System.out.println(kidsWithCandies(candies, extraCandies));
+        candies = new int[]{12,1,12};
+        extraCandies = 10;
+        System.out.println(kidsWithCandies(candies, extraCandies));
     }
 
     public static String mergeAlternately(String word1, String word2) {
@@ -61,4 +74,18 @@ class Solution {
         }
         return -1;
     }
+
+    public static List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
+        int greatest = Arrays.stream(candies).max().getAsInt(); 
+        List<Boolean> output = new ArrayList<>();
+        for (int kid : candies) {
+            if (kid + extraCandies >= greatest) {
+                output.add(true);
+            } else {
+                output.add(false);
+            }
+        }
+        return output;
+    }
+
 }
