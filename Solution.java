@@ -22,15 +22,21 @@ class Solution {
         // str1 = "LEET";
         // str2 = "CODE";
         // System.out.println(gcdOfStrings(str1, str2));
-        int[] candies = new int[]{2,3,5,1,3};
-        int extraCandies = 3;
-        System.out.println(kidsWithCandies(candies, extraCandies));
-        candies = new int[]{4,2,1,1,2};
-        extraCandies = 1;
-        System.out.println(kidsWithCandies(candies, extraCandies));
-        candies = new int[]{12,1,12};
-        extraCandies = 10;
-        System.out.println(kidsWithCandies(candies, extraCandies));
+        // int[] candies = new int[]{2,3,5,1,3};
+        // int extraCandies = 3;
+        // System.out.println(kidsWithCandies(candies, extraCandies));
+        // candies = new int[]{4,2,1,1,2};
+        // extraCandies = 1;
+        // System.out.println(kidsWithCandies(candies, extraCandies));
+        // candies = new int[]{12,1,12};
+        // extraCandies = 10;
+        // System.out.println(kidsWithCandies(candies, extraCandies));
+        int[] flowerbed = new int[]{1,0,0,0,1};
+        int n = 1;
+        System.out.println(canPlaceFlowers(flowerbed, n));
+        flowerbed = new int[]{1,0,0,0,1};
+        n = 1;
+        System.out.println(canPlaceFlowers(flowerbed, n));
     }
 
     public static String mergeAlternately(String word1, String word2) {
@@ -86,6 +92,38 @@ class Solution {
             }
         }
         return output;
+    }
+
+    public static boolean canPlaceFlowers(int[] flowerbed, int n) {
+        int previous = 0;
+        int totalEmpty = 1;
+        int flowerbedLen = flowerbed.length;
+
+        // Add an extra element at the end of flowerbed to simplify boundary checking
+        int[] updatedFlowerbed = new int[flowerbedLen + 1];
+        System.arraycopy(flowerbed, 0, updatedFlowerbed, 0, flowerbedLen);
+
+        if (updatedFlowerbed[flowerbedLen - 1] == 0) {
+            totalEmpty += flowerbedLen;
+            n -= totalEmpty;
+            return n <= 0;
+        }
+
+        for (int index = 0; index < flowerbedLen; index++) {
+            previous = updatedFlowerbed[index];
+            if (previous == 1) {
+                n -= totalEmpty;
+                totalEmpty = 0;
+                continue;
+            }
+            totalEmpty++;
+        }
+
+        n -= totalEmpty;
+
+        return n <= 0;
+    
+        
     }
 
 }
