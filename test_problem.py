@@ -594,3 +594,16 @@ class TestSingleNumber():
         output = solution.singleNumber(nums)
         assert expected == output
 
+
+class TestMaxArea():
+    def test_example_1(self, solution: Solution):
+        height = [1,8,6,2,5,4,8,3,7]
+        expected = 49
+        output = solution.maxArea(height)
+        assert expected == output
+
+    def test_example_2(self, solution: Solution):
+        height = [1,1]
+        expected = 1
+        output = solution.maxArea(height)
+        assert expected == output

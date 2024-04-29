@@ -447,6 +447,24 @@ class Solution:
             else:
                 unique.remove(num)
         return unique.pop()
+    
+    def maxArea(self, height: List[int]) -> int:
+        """ 11. Container With Most Water """
+        left = 0
+        right = len(height) - 1
+        max_water = 0
+        
+        while left < right:
+            area = (right - left) * min(height[left], height[right])
+            max_water = max(max_water, area)
+
+            if height[left] < height[right]:
+                left += 1
+            else:
+                right -= 1
+
+        return max_water
+
 
 
 def guess(num: int):
@@ -537,10 +555,10 @@ def dfs_leaves(root):
     leaves = dfs_leaves(root.left) + dfs_leaves(root.right)
     return leaves or [root.val]
 
-def main():
-    s = Solution()
-    s.compress(["a","a","b","b","c","c","c"])
-    s.compress(["a"])
-    s.compress(["a","b","b","b","b","b","b","b","b","b","b","b","b"])
+# def main():
+#     s = Solution()
+#     s.compress(["a","a","b","b","c","c","c"])
+#     s.compress(["a"])
+#     s.compress(["a","b","b","b","b","b","b","b","b","b","b","b","b"])
 
-main()
+# main()
