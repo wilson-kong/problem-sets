@@ -195,19 +195,33 @@ class Solution:
         return False
     
     def compress(self, chars: List[str]) -> int:
-        """ 443. String Compression443. String Compression """
-        collected = Counter(chars)
+        """ 443. String Compression """
+        output = []
+        current_char = chars[0]
+        count = 1
+
+        for index in range(1, len(chars)):
+            char = chars[index]
+            if char != current_char:
+                output.append((current_char,str(count)))
+                current_char = char
+                count = 1
+            else:
+                count += 1
+        output.append((current_char,str(count)))
+        
         index = 0
-        for key in collected:
-            if collected[key] == 1:
-                chars[index] = key
+        for char, count in output:
+            if count == "1":
+                chars[index] = char
                 index += 1
             else:
-                chars[index] = key
+                chars[index] = char
                 index += 1
-                for char in str(collected[key]):
-                    chars[index] = char
+                for number in count:
+                    chars[index] = number
                     index += 1
+
         return index
 
     ##### Two Pointers #####
@@ -362,6 +376,7 @@ class Solution:
         return self.searchBST(root.right, val)  
     
     def guessNumber(self, n: int) -> int:
+        """ 374. Guess Number Higher or Lower """
         if n == 1:
             return 1
 
@@ -381,6 +396,7 @@ class Solution:
         return guessing
     
     def tribonacci(self, n: int) -> int:
+        """ 1137. N-th Tribonacci Number """
         if n < 2:
             return n
         
@@ -402,6 +418,14 @@ class Solution:
         #     return 1
         
         # return self.tribonacci(n - 3) + self.tribonacci(n - 2) + self.tribonacci(n - 1)
+
+    def minCostClimbingStairs(self, cost: List[int]) -> int:
+        """ 746. Min Cost Climbing Stairs """
+        cost.append(0)
+        for i in range(2, len(cost)):
+            cost[i] += min(cost[i - 1], cost[i - 2])
+
+        return cost[-1]
 
 def guess(num: int):
     if num > GUESS:
@@ -490,3 +514,11 @@ def dfs_leaves(root):
         return []
     leaves = dfs_leaves(root.left) + dfs_leaves(root.right)
     return leaves or [root.val]
+
+def main():
+    s = Solution()
+    s.compress(["a","a","b","b","c","c","c"])
+    s.compress(["a"])
+    s.compress(["a","b","b","b","b","b","b","b","b","b","b","b","b"])
+
+main()
