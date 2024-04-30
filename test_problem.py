@@ -607,3 +607,19 @@ class TestMaxArea():
         expected = 1
         output = solution.maxArea(height)
         assert expected == output
+
+
+class TestMaxOperations():
+    def test_example_1(self, solution: Solution):
+        nums = [1,2,3,4]
+        k = 5
+        expected = 2
+        output = solution.maxOperations(nums, k)
+        assert expected == output
+
+    def test_example_2(self, solution: Solution):
+        nums = [3,1,3,4,3]
+        k = 6
+        expected = 1
+        output = solution.maxOperations(nums, k)
+        assert expected == output

@@ -464,6 +464,44 @@ class Solution:
                 right -= 1
 
         return max_water
+    
+    def maxOperations(self, nums: List[int], k: int) -> int:
+        """ 1679. Max Number of K-Sum Pairs """
+        nums.sort()
+        left = 0
+        right = len(nums) - 1
+        count = 0
+        while left < right:
+            if (nums[left] + nums[right]) == k:
+                count += 1
+                left += 1
+                right -= 1
+                continue
+            elif (nums[left] + nums[right]) < k:
+                left += 1
+                continue
+            elif (nums[left] + nums[right]) > k:
+                right -= 1
+                continue
+
+        return count
+        # matches = []
+        # for index, num in enumerate(nums):
+        #     if index in matches:
+        #         continue
+        #     else:
+        #         for right_index, right_num in enumerate(nums):
+        #             if right_index in matches or index in matches or index == right_index:
+        #                 continue
+        #             if (num + right_num) == k:
+        #                 print(index)
+        #                 print(right_index)
+        #                 matches.append(index)
+        #                 matches.append(right_index)
+        # if matches:
+        #     return len(matches)//2
+        # else:
+        #     return 0
 
 
 
