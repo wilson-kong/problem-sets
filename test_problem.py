@@ -623,3 +623,34 @@ class TestMaxOperations():
         expected = 1
         output = solution.maxOperations(nums, k)
         assert expected == output
+
+
+class TestMaxVowels():
+    def test_example_1(self, solution: Solution):
+        s = "abciiidef"
+        k = 3
+        expected = 3
+        output = solution.maxVowels(s, k)
+        assert expected == output
+
+    def test_example_2(self, solution: Solution):
+        s = "aeiou"
+        k = 2
+        expected = 2
+        output = solution.maxVowels(s, k)
+        assert expected == output
+
+    def test_example_3(self, solution: Solution):
+        s = "leetcode"
+        k = 3
+        expected = 2
+        output = solution.maxVowels(s, k)
+        assert expected == output
+
+    def test_example_4(self, solution: Solution):
+        s = "weallloveyou"
+        k = 7
+        expected = 4
+        output = solution.maxVowels(s, k)
+        assert expected == output
+        

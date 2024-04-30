@@ -485,6 +485,7 @@ class Solution:
                 continue
 
         return count
+        # Brute force
         # matches = []
         # for index, num in enumerate(nums):
         #     if index in matches:
@@ -502,6 +503,57 @@ class Solution:
         #     return len(matches)//2
         # else:
         #     return 0
+
+    def maxVowels(self, s: str, k: int) -> int:
+        """ 1456. Maximum Number of Vowels in a Substring of Given Length """
+        max_count = 0
+        vowels = 'aeiou'
+        index = 0
+        end_index = index + k
+        sub = s[index:end_index]
+        for char in sub:
+            if char in vowels:
+                max_count += 1
+
+        count = max_count
+        
+        for index in range(k, len(s)):
+            if s[index] in vowels:
+                count += 1
+            if s[index - k] in vowels:
+                count -= 1
+            if count > max_count:
+                max_count = count
+
+        # brute force
+        # for index in range(len(s)):
+        #     end_index = index + k
+        #     sub = s[index:end_index]
+        #     print(sub)
+        #     count = 0
+        #     for char in sub:
+        #         if char in vowels:
+        #             count += 1
+        #     if count > max_count:
+        #         max_count = count
+
+        return max_count
+                
+        # Brute force
+        # max_count = 0
+        # vowels = 'aeiou'
+        # for index in range(len(s)):
+        #     end_index = index + k
+        #     sub = s[index:end_index]
+        #     print(sub)
+        #     count = 0
+        #     for char in sub:
+        #         if char in vowels:
+        #             count += 1
+        #     if count > max_count:
+        #         max_count = count
+
+        # return max_count
 
 
 
