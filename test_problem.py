@@ -607,3 +607,19 @@ class TestMaxArea():
         expected = 1
         output = solution.maxArea(height)
         assert expected == output
+
+
+class TestLongestOnes():
+    def test_example_1(self, solution: Solution):
+        nums = [1,1,1,0,0,0,1,1,1,1,0]
+        k = 2
+        expected = 6
+        output = solution.longestOnes(nums, k)
+        assert expected == output
+
+    def test_example_2(self, solution: Solution):
+        nums = [0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1]
+        k = 3
+        expected = 10
+        output = solution.longestOnes(nums, k)
+        assert expected == output
