@@ -464,7 +464,97 @@ class Solution:
                 right -= 1
 
         return max_water
-    
+        
+    def maxOperations(self, nums: List[int], k: int) -> int:
+        """ 1679. Max Number of K-Sum Pairs """
+        nums.sort()
+        left = 0
+        right = len(nums) - 1
+        count = 0
+        while left < right:
+            if (nums[left] + nums[right]) == k:
+                count += 1
+                left += 1
+                right -= 1
+                continue
+            elif (nums[left] + nums[right]) < k:
+                left += 1
+                continue
+            elif (nums[left] + nums[right]) > k:
+                right -= 1
+                continue
+
+        return count
+        # Brute force
+        # matches = []
+        # for index, num in enumerate(nums):
+        #     if index in matches:
+        #         continue
+        #     else:
+        #         for right_index, right_num in enumerate(nums):
+        #             if right_index in matches or index in matches or index == right_index:
+        #                 continue
+        #             if (num + right_num) == k:
+        #                 print(index)
+        #                 print(right_index)
+        #                 matches.append(index)
+        #                 matches.append(right_index)
+        # if matches:
+        #     return len(matches)//2
+        # else:
+        #     return 0
+
+    def maxVowels(self, s: str, k: int) -> int:
+        """ 1456. Maximum Number of Vowels in a Substring of Given Length """
+        max_count = 0
+        vowels = 'aeiou'
+        index = 0
+        end_index = index + k
+        sub = s[index:end_index]
+        for char in sub:
+            if char in vowels:
+                max_count += 1
+
+        count = max_count
+        
+        for index in range(k, len(s)):
+            if s[index] in vowels:
+                count += 1
+            if s[index - k] in vowels:
+                count -= 1
+            if count > max_count:
+                max_count = count
+
+        # brute force
+        # for index in range(len(s)):
+        #     end_index = index + k
+        #     sub = s[index:end_index]
+        #     print(sub)
+        #     count = 0
+        #     for char in sub:
+        #         if char in vowels:
+        #             count += 1
+        #     if count > max_count:
+        #         max_count = count
+
+        return max_count
+                
+        # Brute force
+        # max_count = 0
+        # vowels = 'aeiou'
+        # for index in range(len(s)):
+        #     end_index = index + k
+        #     sub = s[index:end_index]
+        #     print(sub)
+        #     count = 0
+        #     for char in sub:
+        #         if char in vowels:
+        #             count += 1
+        #     if count > max_count:
+        #         max_count = count
+
+        # return max_count
+
     def longestOnes(self, nums: List[int], k: int) -> int:
         """ 1004. Max Consecutive Ones III """
         left = 0
