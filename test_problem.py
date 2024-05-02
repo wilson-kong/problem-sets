@@ -655,7 +655,6 @@ class TestMaxVowels():
         assert expected == output
         
 
-
 class TestLongestOnes():
     def test_example_1(self, solution: Solution):
         nums = [1,1,1,0,0,0,1,1,1,1,0]
@@ -669,4 +668,25 @@ class TestLongestOnes():
         k = 3
         expected = 10
         output = solution.longestOnes(nums, k)
+        assert expected == output
+
+
+
+class TestLongestSubarray():
+    def test_example_1(self, solution: Solution):
+        nums = [1,1,0,1]
+        expected = 3
+        output = solution.longestSubarray(nums)
+        assert expected == output
+
+    def test_example_2(self, solution: Solution):
+        nums = [0,1,1,1,0,1,1,0,1]
+        expected = 5
+        output = solution.longestSubarray(nums)
+        assert expected == output
+
+    def test_example_3(self, solution: Solution):
+        nums = [1,1,1]
+        expected = 2
+        output = solution.longestSubarray(nums)
         assert expected == output
