@@ -671,7 +671,6 @@ class TestLongestOnes():
         assert expected == output
 
 
-
 class TestLongestSubarray():
     def test_example_1(self, solution: Solution):
         nums = [1,1,0,1]
@@ -689,4 +688,26 @@ class TestLongestSubarray():
         nums = [1,1,1]
         expected = 2
         output = solution.longestSubarray(nums)
+        assert expected == output
+
+class TestcloseStrings():
+    def test_example_1(self, solution: Solution):
+        word1 = "abc"
+        word2 = "bca"
+        expected = True
+        output = solution.closeStrings(word1, word2)
+        assert expected == output
+
+    def test_example_2(self, solution: Solution):
+        word1 = "a"
+        word2 = "aa"
+        expected = False
+        output = solution.closeStrings(word1, word2)
+        assert expected == output
+
+    def test_example_3(self, solution: Solution):
+        word1 = "cabbba"
+        word2 = "abbccc"
+        expected = True
+        output = solution.closeStrings(word1, word2)
         assert expected == output

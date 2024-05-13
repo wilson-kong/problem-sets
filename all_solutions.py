@@ -581,6 +581,17 @@ class Solution:
         # return right - left
         return self.longestOnes(nums, 1) - 1
 
+    def closeStrings(self, word1: str, word2: str) -> bool:
+        """ 1657. Determine if Two Strings Are Close """
+        counter1 = Counter(word1)
+        counter2 = Counter(word2)
+        
+        frequency1 = Counter([v for v in counter1.values()])
+        frequency2 = Counter([v for v in counter2.values()])
+        print(counter1, counter2, frequency1, frequency2)
+        return counter1 == counter2 or (frequency1 == frequency2 and set(word1) == set(word2))
+        
+
 
 def guess(num: int):
     if num > GUESS:
