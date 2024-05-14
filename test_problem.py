@@ -711,3 +711,24 @@ class TestcloseStrings():
         expected = True
         output = solution.closeStrings(word1, word2)
         assert expected == output
+
+
+class TestEqualPairs():
+    def test_example_1(self, solution: Solution):
+        grid = [[3,2,1],[1,7,6],[2,7,7]]
+        expected = 1
+        output = solution.equalPairs(grid)
+        assert expected == output
+
+    def test_example_2(self, solution: Solution):
+        grid = [[3,1,2,2],[1,4,4,5],[2,4,2,2],[2,4,2,2]]
+        expected = 3
+        output = solution.equalPairs(grid)
+        assert expected == output
+
+    def test_example_3(self, solution: Solution):
+        grid = [[3,1,2,2],[1,4,4,4],[2,4,2,2],[2,5,2,2]]
+        expected = 3
+        output = solution.equalPairs(grid)
+        assert expected == output
+

@@ -1,6 +1,7 @@
 from collections import Counter
 import math
 from typing import List, Optional
+import numpy as np
 GUESS = 2
 
 class ListNode:
@@ -591,6 +592,17 @@ class Solution:
         print(counter1, counter2, frequency1, frequency2)
         return counter1 == counter2 or (frequency1 == frequency2 and set(word1) == set(word2))
         
+    def equalPairs(self, grid: List[List[int]]) -> int:
+        """ 2352. Equal Row and Column Pairs """
+        count = 0
+        grid_np = np.array(grid)
+
+        for row in grid:
+            for index in range(len(row)):
+                if np.all(row == grid_np[:,index]):
+                    count += 1
+
+        return count
 
 
 def guess(num: int):
