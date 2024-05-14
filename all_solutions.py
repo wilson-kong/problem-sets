@@ -603,6 +603,20 @@ class Solution:
                     count += 1
 
         return count
+    
+    def removeStars(self, s: str) -> str:
+        """ 2390. Removing Stars From a String """
+        count = 0
+        output = ""
+        for char in s[::-1]:
+            if char == "*":
+                count += 1
+            elif count > 0:
+                count -= 1
+            else:
+                output = char + output
+
+        return output
 
 
 def guess(num: int):

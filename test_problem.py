@@ -732,3 +732,17 @@ class TestEqualPairs():
         output = solution.equalPairs(grid)
         assert expected == output
 
+
+
+class TestRemoveStars():
+    def test_example_1(self, solution: Solution):
+        s = "leet**cod*e"
+        expected = "lecoe"
+        output = solution.removeStars(s)
+        assert expected == output
+
+    def test_example_2(self, solution: Solution):
+        s = "erase*****"
+        expected = ""
+        output = solution.removeStars(s)
+        assert expected == output
