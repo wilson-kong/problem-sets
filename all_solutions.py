@@ -606,17 +606,25 @@ class Solution:
     
     def removeStars(self, s: str) -> str:
         """ 2390. Removing Stars From a String """
-        count = 0
-        output = ""
-        for char in s[::-1]:
-            if char == "*":
-                count += 1
-            elif count > 0:
-                count -= 1
+        stack = []
+        for char in s:
+            if char == "*" and stack:
+                stack.pop(-1)
             else:
-                output = char + output
+                stack.append(char)
+        
+        return "".join(stack)
+        # count = 0
+        # output = ""
+        # for char in s[::-1]:
+        #     if char == "*":
+        #         count += 1
+        #     elif count > 0:
+        #         count -= 1
+        #     else:
+        #         output = char + output
 
-        return output
+        # return output
 
 
 def guess(num: int):
