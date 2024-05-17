@@ -746,3 +746,23 @@ class TestRemoveStars():
         expected = ""
         output = solution.removeStars(s)
         assert expected == output
+
+
+class TestAsteroidCollision():
+    def test_example_1(self, solution: Solution):
+        asteroids = [5,10,-5]
+        expected = [5,10]
+        output = solution.asteroidCollision(asteroids)
+        assert expected == output
+
+    def test_example_2(self, solution: Solution):
+        asteroids = [8,-8]
+        expected = []
+        output = solution.asteroidCollision(asteroids)
+        assert expected == output
+
+    def test_example_3(self, solution: Solution):
+        asteroids = [10,2,-5]
+        expected = [10]
+        output = solution.asteroidCollision(asteroids)
+        assert expected == output
