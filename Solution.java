@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Stack;
 
 class Solution {
     public static void main(String[] args) {
@@ -124,6 +125,34 @@ class Solution {
         return n <= 0;
     
         
+    }
+
+    public static int[] asteroidCollision(int[] asteroids) {
+        
+        Stack<Integer> stack = new Stack<>();
+
+        for (int asteroid: asteroids) {
+            while (stack.empty() == false && asteroid < 0 && stack.peek() > 0) {
+                int diff = asteroid + stack.peek();
+                if (diff < 0) {
+                    stack.pop();
+                } else if (diff > 0) {
+                    asteroid = 0;
+                } else {
+                    asteroid = 0;
+                    stack.pop();
+                }
+            }
+            if (asteroid != 0) {
+                stack.push(asteroid);
+            }
+        }
+
+        int[] output = new int[stack.size()];
+        for (int i = 0; i < stack.size(); i++) {
+            output[i] = stack.get(i);
+        }
+        return output;
     }
 
 }
