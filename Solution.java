@@ -38,15 +38,19 @@ class Solution {
         // flowerbed = new int[]{1,0,0,0,1};
         // n = 1;
         // System.out.println(canPlaceFlowers(flowerbed, n));
-        LinkedList linkedList = new LinkedList();
-        linkedList.insertAtStart("H");
-        linkedList.insertAtStart("e");
-        linkedList.insertAtStart("l");
-        System.out.println(linkedList.allData());
-        linkedList.insertAtStart("l");
-        linkedList.insertAtStart("o");
-        linkedList.insertAtStart("!");
-        System.out.println(linkedList.allData());
+        // LinkedList linkedList = new LinkedList();
+        // linkedList.insertAtStart("H");
+        // linkedList.insertAtStart("e");
+        // linkedList.insertAtStart("l");
+        // System.out.println(linkedList.allData());
+        // linkedList.insertAtStart("l");
+        // linkedList.insertAtStart("o");
+        // linkedList.insertAtStart("!");
+        // System.out.println(linkedList.allData());
+
+        String s = "the sky is blue"; 
+        System.out.println(reverseWords(s));
+        // "blue is sky the"
     }
 
     public static String mergeAlternately(String word1, String word2) {
@@ -165,7 +169,24 @@ class Solution {
     }
 
     public static String reverseWords(String s) {
-        return "";
+        LinkedList output = new LinkedList();
+        int start_index = -1;
+        s = " " + s + " ";
+        for (int index = 0; index < s.length(); index++) {
+            if (s.charAt(index) != ' ') {
+                if (start_index == -1) {
+                    start_index = index;
+                    System.out.print("start index: ");
+                    System.out.println(start_index);
+                }
+            } else {
+                if (start_index != -1) {
+                    output.insertAtStart(s.substring(start_index, index));
+                    start_index = -1;
+                }
+            }
+        }
+        return output.allData();
     }
 
 }
@@ -204,7 +225,7 @@ class LinkedList {
         String output = "";
 
         while (currentNode != null) {
-            output += currentNode.data + ", ";
+            output += currentNode.data + " ";
             currentNode = currentNode.next;
         }
         return output.substring(0, output.length() - 1);
