@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Stack;
 
 class Solution {
@@ -48,9 +50,19 @@ class Solution {
         // linkedList.insertAtStart("!");
         // System.out.println(linkedList.allData());
 
-        String s = "the sky is blue"; 
-        System.out.println(reverseWords(s));
+        // String s = "the sky is blue"; 
+        // System.out.println(reverseWords(s));
         // "blue is sky the"
+
+        Trie trie = new Trie();
+        System.out.println(trie.search("Hello"));
+        System.out.println(trie.search("Hel"));
+        System.out.println(trie.search("Hell"));
+        trie.insert("Hello");
+        trie.insert("Hell");
+        System.out.println(trie.search("Hello"));
+        System.out.println(trie.search("Hel"));
+        System.out.println(trie.search("Hell"));
     }
 
     public static String mergeAlternately(String word1, String word2) {
@@ -229,5 +241,60 @@ class LinkedList {
             currentNode = currentNode.next;
         }
         return output.substring(0, output.length() - 1);
+    }
+}
+
+class Trie {
+    private HashMap<Character, HashMap> origin;
+
+    public Trie() {
+        this.origin = new HashMap<>();
+    }
+    
+    public void insert(String word) {
+        HashMap<Character, HashMap> node = this.origin;
+        
+        for (int i = 0; i < word.length(); i++) {
+            char letter = word.charAt(i);
+            if (node.containsKey(letter)) {
+                node = node.get(letter);
+            } else {
+                HashMap<Character, HashMap> newNode = new HashMap<>();
+                node.put(letter, newNode);
+                node = node.get(word.charAt(i)); 
+            }
+        }
+        node.put('\0', new HashMap<Character, HashMap>(0)); 
+    }
+    
+    public boolean search(String word) {
+        HashMap<Character, HashMap> node = this.origin;
+
+        for (int i = 0; i < word.length(); i++) {
+            char letter = word.charAt(i);
+            if (node.containsKey(letter)) {
+                node = node.get(letter);
+            } else {
+                return false;
+            }
+        }
+        if (node.containsKey('\0')) {
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean startsWith(String prefix) {
+        HashMap<Character, HashMap> node = this.origin;
+
+        for (int i = 0; i < prefix.length(); i++) {
+            char letter = prefix.charAt(i);
+            if (node.containsKey(letter)) {
+                node = node.get(letter);
+            } else {
+                return false;
+            }
+        }
+        return true;
     }
 }
