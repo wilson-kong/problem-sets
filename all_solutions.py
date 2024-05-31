@@ -734,10 +734,62 @@ def dfs_leaves(root):
     leaves = dfs_leaves(root.left) + dfs_leaves(root.right)
     return leaves or [root.val]
 
-# def main():
-#     s = Solution()
-#     s.compress(["a","a","b","b","c","c","c"])
-#     s.compress(["a"])
-#     s.compress(["a","b","b","b","b","b","b","b","b","b","b","b","b"])
 
-# main()
+class Trie:
+
+    def __init__(self):
+        self._origin = {}
+
+    def insert(self, word: str) -> None:
+        node = self._origin
+
+        for letter in word:
+            if node.get(letter):
+                node = node.get(letter)
+            else:
+                node[letter] = {}
+                node = node.get(letter)
+
+        node['\0'] = {}
+
+    def search(self, word: str) -> bool:
+        node = self._origin
+        for letter in word:
+            if letter in node:
+                node = node.get(letter)
+            else:
+                return False
+        return '\0' in node
+        
+    def startsWith(self, prefix: str) -> bool:
+        node = self._origin
+        for letter in prefix:
+            if letter in node:
+                node = node.get(letter)
+            else:
+                return False
+        return True
+
+
+# Your Trie object will be instantiated and called as such:
+# obj = Trie()
+# obj.insert(word)
+# param_2 = obj.search(word)
+# param_3 = obj.startsWith(prefix)
+
+def main():
+    obj = Trie()
+    word = "apple"
+    prefix = "app"
+    obj.insert(word)
+    print(obj.search(word))
+    print(obj.search(prefix))
+    print(obj.startsWith(prefix))
+    obj.insert(prefix)
+    print(obj.search(word))
+    print(obj.search(prefix))
+    print(obj.startsWith(prefix))
+
+
+main()
+

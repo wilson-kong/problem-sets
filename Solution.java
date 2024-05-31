@@ -244,13 +244,24 @@ class LinkedList {
     }
 }
 
+/**
+ * This class is a trie implementation.
+ */
 class Trie {
     private HashMap<Character, HashMap> origin;
-
+    
+    /**
+     * 
+     */
     public Trie() {
         this.origin = new HashMap<>();
     }
     
+    /**
+     * Inserts a word into the trie
+     * 
+     * @param word the word to be inserted into the trie
+     */
     public void insert(String word) {
         HashMap<Character, HashMap> node = this.origin;
         
@@ -267,6 +278,12 @@ class Trie {
         node.put('\0', new HashMap<Character, HashMap>(0)); 
     }
     
+    /**
+     * Search to see if a word exist in the Trie.
+     * 
+     * @param word that is searched.
+     * @return True if the word exist in the trie, false otherwise.
+     */
     public boolean search(String word) {
         HashMap<Character, HashMap> node = this.origin;
 
@@ -284,6 +301,14 @@ class Trie {
         return false;
     }
     
+    /**
+     * Search the trie to see if any word starts with the given prefix exists
+     * in the trie
+     * 
+     * @param prefix to search.
+     * @return Returns true if there is a previously inserted string word that
+     *  has the prefix prefix, and false otherwise.
+     */
     public boolean startsWith(String prefix) {
         HashMap<Character, HashMap> node = this.origin;
 
