@@ -1,8 +1,12 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.Stack;
 
 class Solution {
@@ -54,15 +58,113 @@ class Solution {
         // System.out.println(reverseWords(s));
         // "blue is sky the"
 
-        Trie trie = new Trie();
-        System.out.println(trie.search("Hello"));
-        System.out.println(trie.search("Hel"));
-        System.out.println(trie.search("Hell"));
-        trie.insert("Hello");
-        trie.insert("Hell");
-        System.out.println(trie.search("Hello"));
-        System.out.println(trie.search("Hel"));
-        System.out.println(trie.search("Hell"));
+        // Trie trie = new Trie();
+        // System.out.println(trie.search("Hello"));
+        // System.out.println(trie.search("Hel"));
+        // System.out.println(trie.search("Hell"));
+        // trie.insert("Hello");
+        // trie.insert("Hell");
+        // System.out.println(trie.search("Hello"));
+        // System.out.println(trie.search("Hel"));
+        // System.out.println(trie.search("Hell"));
+
+        // Set<Character> normalSet = new HashSet<Character>(); 
+        // normalSet.add('1');
+        // normalSet.add('1');
+        // normalSet.add('1');
+        // normalSet.add('1');
+        // System.out.println(normalSet);
+
+        // List<Integer> arr = new ArrayList<>();
+        // // [3, 2, 3, 3, 1, 3]
+        // arr.add(3);
+        // arr.add(2);
+        // arr.add(3);
+        // arr.add(3);
+        // arr.add(1);
+        // arr.add(3);
+        // int k = 3;
+
+        // //  should be 4
+        // System.out.println(findMinimumLengthSubarray(arr, k));
+
+        // arr = new ArrayList<>();
+        // // [1, 2, 2, 1, 2]
+        // arr.add(1);
+        // arr.add(2);
+        // arr.add(2);
+        // arr.add(1);
+        // arr.add(2);
+
+        // k = 4;
+        // //  should be -1
+        // System.out.println(findMinimumLengthSubarray(arr, k));
+
+        List<Integer> x = new ArrayList<>();
+        List<Integer> y = new ArrayList<>();
+        x.add(543243);
+        x.add(5000);
+
+        y.add(0);
+        y.add(322);
+
+        System.out.println(closestSquaredDistance(x, y));
+    }
+
+    public static long closestSquaredDistance(List<Integer> x, List<Integer> y) {
+        long clostest = Long.MAX_VALUE;
+        for (int i = 0; i < x.size() - 1; i++) {
+            long distance;
+            System.out.println(x.get(i));
+            System.out.println(x.get(i + 1));
+            System.out.println(y.get(i));
+            System.out.println(y.get(i + 1));
+            distance = ((x.get(i) - x.get(i + 1)) * (x.get(i) - x.get(i + 1))) + ((y.get(i) - y.get(i + 1)) * (y.get(i) - y.get(i + 1)));
+            if (distance < clostest) {
+                clostest = distance;
+            }
+        }
+        return clostest;
+    
+    }
+
+    public static int findMinimumLengthSubarray(List<Integer> arr, int k) {
+        int minSize = arr.size();
+        Set<Integer> uniqueSet = new HashSet<Integer>(); 
+        boolean flag = false;
+
+        for (int i = 0; i < k; i++) {
+            uniqueSet.add(arr.get(i));
+        }
+        if (uniqueSet.size() == k) {
+            return k;
+        }
+        
+    
+        for (int left = 0; left < arr.size() - k ; left++) {
+            uniqueSet = new HashSet<Integer>(); 
+            for (int right = left + k; right < arr.size(); right++){
+                if (uniqueSet.size() == 0) {
+                    List<Integer> smallerList = arr.subList(left, right);
+                    uniqueSet.addAll(smallerList);
+                } else {
+                    uniqueSet.add(arr.get(right));
+                }
+                
+                int diff = right - left;
+                if (uniqueSet.size() == k && diff < minSize) {
+                    minSize = diff;
+                    flag = true;
+                }
+            }
+
+
+        }
+        if (flag) {
+            return minSize;
+        } else {
+            return -1;
+        }
     }
 
     public static String mergeAlternately(String word1, String word2) {
