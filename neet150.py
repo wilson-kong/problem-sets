@@ -18,6 +18,15 @@ class Solution:
                 s_letters.remove(char)
 
         return len(s_letters) == 0
+    
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        nums_len = len(nums)
+        count = 0
+        for i in range(nums_len - 1, 0, -1):
+            for j in range(i):
+                if nums[nums_len - i - 1] + nums[j + 1 + count] == target:
+                    return[nums_len - i - 1, j + 1 + count]
+            count += 1
 
 
 def main():
