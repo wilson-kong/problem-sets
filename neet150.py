@@ -28,6 +28,35 @@ class Solution:
                     return[nums_len - i - 1, j + 1 + count]
             count += 1
 
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        if len(strs) <= 1:
+            return [strs]
+        
+        output_dict = {}
+
+        for current in strs:
+            length = len(current)
+            if length in output_dict:
+                all_words = output_dict[length]
+                # output_dict[length][0].append(current)
+                flag = False
+                for words in all_words:
+                    if sorted(current)== sorted(words[0]):
+                        words.append(current)
+                        flag = True
+                        break
+                if not flag:
+                    all_words.append([current])
+
+            else:
+                output_dict[length] = [[current]]
+        output = []
+        for key in output_dict:
+            
+            for words in output_dict[key]:
+                output.append(words)
+        return output
+        
 
 def main():
     solution = Solution()
@@ -35,14 +64,19 @@ def main():
     # print(solution.hasDuplicate(nums))
     # nums = [1, 2, 3, 4]
     # print(solution.hasDuplicate(nums))
-    s = "racecar"
-    t = "carrace"
-    print(solution.isAnagram(s, t))
-    s = "jar"
-    t = "jam"
-    print(solution.isAnagram(s, t))
-    s = "a"
-    t = "ab"
-    print(solution.isAnagram(s, t))
+    # s = "racecar"
+    # t = "carrace"
+    # print(solution.isAnagram(s, t))
+    # s = "jar"
+    # t = "jam"
+    # print(solution.isAnagram(s, t))
+    # s = "a"
+    # t = "ab"
+    # print(solution.isAnagram(s, t))
+    strs = ["act","pots","tops","cat","stop","hat"]
+    print(solution.groupAnagrams(strs))
+    print([["hat"],["act", "cat"],["stop", "pots", "tops"]])
+    strs = ["x"]
+    print(solution.groupAnagrams(strs))
 
 main()
